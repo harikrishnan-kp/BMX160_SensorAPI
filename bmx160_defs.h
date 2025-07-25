@@ -282,7 +282,7 @@
 /** BMX160 Register map */
 #define BMX160_CHIP_ID_ADDR                       UINT8_C(0x00)
 #define BMX160_ERROR_REG_ADDR                     UINT8_C(0x02)
-#define BMX160_PMU_STATUS_ADDR                    UINT8_C(0x03)  // check what is it
+#define BMX160_PMU_STATUS_ADDR                    UINT8_C(0x03)  // The register shows the current power mode of the sensor (aacl, gyro. mag)
 #define BMX160_MAG_DATA_ADDR                      UINT8_C(0x04)
 #define BMX160_GYRO_DATA_ADDR                     UINT8_C(0x0C)
 #define BMX160_ACCEL_DATA_ADDR                    UINT8_C(0x12)
@@ -357,3 +357,64 @@
 #define BMX160_E_FOC_FAILURE                      INT8_C(-11)
 #define BMX160_E_READ_WRITE_LENGTH_INVALID        INT8_C(-12) // check what is it
 #define BMX160_E_INVALID_CONFIG                   INT8_C(-13) // check what is it
+
+/**\name API warning codes */
+#define BMX160_W_GYRO_SELF_TEST_FAIL              INT8_C(1)
+#define BMX160_W_ACCEl_SELF_TEST_FAIL             INT8_C(2)
+
+/** BMX160 unique chip identifier */
+#define BMX160_CHIP_ID                            UINT8_C(0xD8)
+
+/** Soft reset command */
+#define BMX160_SOFT_RESET_CMD                     UINT8_C(0xb6)
+#define BMX160_SOFT_RESET_DELAY_MS                UINT8_C(15)
+
+/** Start FOC command */
+#define BMX160_START_FOC_CMD                      UINT8_C(0x03)
+
+/** NVM backup enabling command */
+#define BMX160_NVM_BACKUP_EN                      UINT8_C(0xA0)
+
+/* Delay in ms settings */
+#define BMX160_ACCEL_DELAY_MS                     UINT8_C(5)
+#define BMX160_GYRO_DELAY_MS                      UINT8_C(80)
+#define BMX160_ONE_MS_DELAY                       UINT8_C(1)
+#define BMX160_MAG_COM_DELAY                      UINT8_C(10)
+#define BMX160_GYRO_SELF_TEST_DELAY               UINT8_C(20)
+#define BMX160_ACCEL_SELF_TEST_DELAY              UINT8_C(50)
+
+/** Self test configurations */
+#define BMX160_ACCEL_SELF_TEST_CONFIG             UINT8_C(0x2C)
+#define BMX160_ACCEL_SELF_TEST_POSITIVE_EN        UINT8_C(0x0D)
+#define BMX160_ACCEL_SELF_TEST_NEGATIVE_EN        UINT8_C(0x09)
+#define BMX160_ACCEL_SELF_TEST_LIMIT              UINT16_C(8192)
+
+/** Power mode settings */
+/* Accel power mode */
+#define BMX160_ACCEL_NORMAL_MODE                  UINT8_C(0x11)
+#define BMX160_ACCEL_LOWPOWER_MODE                UINT8_C(0x12)
+#define BMX160_ACCEL_SUSPEND_MODE                 UINT8_C(0x10)
+
+/* Gyro power mode */
+#define BMX160_GYRO_SUSPEND_MODE                  UINT8_C(0x14)
+#define BMX160_GYRO_NORMAL_MODE                   UINT8_C(0x15)
+#define BMX160_GYRO_FASTSTARTUP_MODE              UINT8_C(0x17)
+
+/* Magneto power mode */
+#define BMX160_MAG_SUSPEND_MODE                   UINT8_C(0x18)
+#define BMX160_MAG_NORMAL_MODE                    UINT8_C(0x19)
+#define BMX160_MAG_LOWPOWER_MODE                  UINT8_C(0x1A)
+
+/** Range settings */
+/* Accel Range */
+#define BMX160_ACCEL_RANGE_2G                     UINT8_C(0x03)
+#define BMX160_ACCEL_RANGE_4G                     UINT8_C(0x05)
+#define BMX160_ACCEL_RANGE_8G                     UINT8_C(0x08)
+#define BMX160_ACCEL_RANGE_16G                    UINT8_C(0x0C)
+
+/* Gyro Range */
+#define BMX160_GYRO_RANGE_2000_DPS                UINT8_C(0x00)
+#define BMX160_GYRO_RANGE_1000_DPS                UINT8_C(0x01)
+#define BMX160_GYRO_RANGE_500_DPS                 UINT8_C(0x02)
+#define BMX160_GYRO_RANGE_250_DPS                 UINT8_C(0x03)
+#define BMX160_GYRO_RANGE_125_DPS                 UINT8_C(0x04)
